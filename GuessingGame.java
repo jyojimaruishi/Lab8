@@ -16,6 +16,7 @@ class GuessingGame implements ActionListener{
 
   int goal;
 
+//constructor of game, used in Main.java
   GuessingGame(){
     r = new Random();
     goal = r.nextInt(100) + 1;
@@ -37,6 +38,7 @@ class GuessingGame implements ActionListener{
     highLow = new JLabel("");
     lastGuess = new JLabel("");
 
+    //adding all elements of game to frame
     f.add(enterGuess);
     f.add(userGuess);
     f.add(guessButton);
@@ -48,6 +50,7 @@ class GuessingGame implements ActionListener{
   }
 
   public void actionPerformed(ActionEvent e){
+    //when user presses "Guess"
     if(e.getSource() == guessButton){
       int guess = Integer.parseInt(userGuess.getText());
 
@@ -63,6 +66,7 @@ class GuessingGame implements ActionListener{
       lastGuess.setText("Last guess was: " + guess);
     }
 
+    //When user presses "Play Again"
     else if(e.getSource() == playAgainButton){
       goal = r.nextInt(100) + 1;
       enterGuess.setText("Enter your guess: ");
@@ -71,6 +75,7 @@ class GuessingGame implements ActionListener{
       userGuess.setText("");      
     }
 
+    //When user inputs Enter
     else{
       highLow.setText("You pressed Enter. Please press the Guess Button.");
     }
